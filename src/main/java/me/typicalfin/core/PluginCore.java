@@ -51,7 +51,8 @@ public class PluginCore {
             return;
 
         final PluginDescriptionFile descriptionFile = plugin.getDescription();
-        final Map<String, Map<String, Object>> commandMap = descriptionFile.getCommands();
+        final Map<String, Map<String, Object>> originalMap = descriptionFile.getCommands();
+        Map<String, Map<String, Object>> commandMap = new HashMap<>(originalMap == null ? new HashMap<>() : descriptionFile.getCommands());
 
         for (Class<?> clazz : commands) {
             final CommandInfo info = clazz.getAnnotation(CommandInfo.class);
@@ -117,7 +118,7 @@ public class PluginCore {
         for (Class<?> clazz : listeners) {
             if (!Listener.class.isAssignableFrom(clazz)) continue;
 
-            Listener instance = null;
+            Listener instance;
             Constructor<?> constructor;
 
             try {

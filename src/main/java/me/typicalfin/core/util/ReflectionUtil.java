@@ -42,7 +42,7 @@ public class ReflectionUtil {
         final Field field = getField(clazz, name);
 
         try {
-            field.set(value, instance);
+            field.set(instance, value);
         } catch (IllegalAccessException ex) {
             ex.printStackTrace();
         }
