@@ -23,14 +23,14 @@ public class ItemUtil {
         final ItemStack stack = new ItemStack(material, amount);
         final ItemMeta meta = stack.getItemMeta();
 
-        if (displayName != null && !displayName.isEmpty())
+        if (displayName != null)
             meta.setDisplayName(displayName);
 
-        if (lore != null && !lore.isEmpty())
+        if (lore != null)
             meta.setLore(lore);
 
+        meta.addItemFlags(flags);
         stack.setItemMeta(meta);
-        stack.addItemFlags(flags);
 
         return stack;
     }
