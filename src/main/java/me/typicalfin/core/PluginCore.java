@@ -22,7 +22,7 @@ import java.util.Map;
 @UtilityClass
 public class PluginCore {
 
-    // TODO: 05/02/2023 auto register events/commands feature
+    // TODO: 05/02/2023 auto register events/commands feature (without having to add them to the array)
     
     public void loadPlugin(CorePlugin plugin) {
         assert plugin instanceof Plugin;
