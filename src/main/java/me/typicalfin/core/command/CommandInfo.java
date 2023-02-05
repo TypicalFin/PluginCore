@@ -14,6 +14,7 @@ public @interface CommandInfo {
     String permission() default "";
     String permissionMessage() default "";
     String usage() default "";
+
     boolean tabCompletes() default false;
     CommandType type() default CommandType.BOTH;
 }

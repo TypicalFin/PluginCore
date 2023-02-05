@@ -39,6 +39,6 @@ public class ItemUtil {
         return new ItemStack(original);
     }
 
-    // TODO: 05/02/2023 builder class with item flags, enchantments, everything 
+    // TODO: 05/02/2023 builder class with item flags, enchantments, everything
 
 }

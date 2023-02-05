@@ -33,7 +33,8 @@ public class Command implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, org.bukkit.command.@NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (!command.getName().equalsIgnoreCase(info.name())) return false;
+        if (!command.getName().equalsIgnoreCase(info.name()))
+            return false;
 
         if (info.type() == CommandType.CONSOLE && sender instanceof Player) {
             sender.sendMessage(ChatColor.RED + "You can only execute this command in the console.");
@@ -58,7 +59,8 @@ public class Command implements CommandExecutor, TabCompleter {
 
     protected void printUsage(CommandSender sender) {
         sender.sendMessage(ChatColor.RED + "Invalid usage!");
-        sender.sendMessage(ChatColor.RED + "Usage: " + ChatColor.GRAY + info.usage().replace("<command>"));
+        // TODO: 05/02/2023 replace <command> with the label instead?
+        sender.sendMessage(ChatColor.RED + "Usage: " + ChatColor.GRAY + info.usage().replace("<command>", info.name()));
     }
 
 
