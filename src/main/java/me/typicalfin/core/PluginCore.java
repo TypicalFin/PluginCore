@@ -14,10 +14,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.reflect.Constructor;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @UtilityClass
 public class PluginCore {
@@ -103,7 +100,7 @@ public class PluginCore {
 
         final PluginDescriptionFile descriptionFile = plugin.getDescription();
 
-        final List<Permission> permissionList = descriptionFile.getPermissions();
+        final List<Permission> permissionList = new ArrayList<>(descriptionFile.getPermissions());
         permissionList.addAll(Arrays.asList(permissions));
 
         ReflectionUtil.setFieldValue(PluginDescriptionFile.class, "permissions", permissionList, descriptionFile);
